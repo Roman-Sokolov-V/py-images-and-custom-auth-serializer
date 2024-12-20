@@ -39,7 +39,7 @@ class Actor(models.Model):
         return f"{self.first_name} {self.last_name}"
 
 
-def convert_uploded_image_name(instance: "Movie", filename: str) -> str:
+def convert_uploaded_image_name(instance: "Movie", filename: str) -> str:
     filename = f"{slugify(instance.title)}-{uuid4()}" + Path(filename).suffix
     return Path("upload/movie_img") / Path(filename)
 
@@ -51,7 +51,7 @@ class Movie(models.Model):
     genres = models.ManyToManyField(Genre)
     actors = models.ManyToManyField(Actor)
     image = models.ImageField(
-        null=True, blank=True, upload_to=convert_uploded_image_name
+        null=True, blank=True, upload_to=convert_uploaded_image_name
     )
 
     class Meta:

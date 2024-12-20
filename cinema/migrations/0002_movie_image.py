@@ -14,6 +14,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='movie',
             name='image',
-            field=models.ImageField(blank=True, null=True, upload_to=cinema.models.convert_uploded_image_name),
+            field=models.ImageField(blank=True, null=True,
+                                    upload_to=cinema.models.convert_uploaded_image_name),
         ),
     ]
